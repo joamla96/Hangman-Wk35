@@ -21,6 +21,9 @@ namespace Server
 			program.Run();
 		}
 
+		public delegate void MakeGuess(char letter);
+		public event MakeGuess Guess;
+
 		private void Run()
 		{
 			Thread ClientThread = new Thread(AcceptClients);

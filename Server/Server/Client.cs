@@ -13,7 +13,10 @@ namespace Server
 	{
 		public StreamReader reader;
 		public StreamWriter writer;
-		
+
+		public delegate void MakeGuess(char letter);
+		public event MakeGuess Guess;
+
 		public Client(TcpClient client)
 		{
 			writer = new StreamWriter(client.GetStream());
